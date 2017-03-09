@@ -1,0 +1,78 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red46\green111\blue253;\red0\green0\blue0;\red127\green127\blue127;
+}
+{\*\expandedcolortbl;;\csgenericrgb\c18039\c43529\c99216;\csgenericrgb\c0\c0\c0;\csgenericrgb\c49804\c49804\c49804;
+}
+\margl1440\margr1440\vieww15780\viewh9720\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\b\fs36 \cf2 \ul \ulc2 \
+MEAN CHEATSHEET\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs28 \cf2 Javascript:
+\fs36 \
+
+\i\b0\fs28 \ulnone You should use Node for what it\'92s good for: making servers capable of handling lots of connections and moving data quickly!\
+\
+
+\i0\b\fs24 \cf3 Nodemon filename.js 
+\b0 in the terminal will run the code in the filename you specify. Every time you save, it will automatically update in the terminal.\
+\
+
+\b Hoisting:\
+
+\b0 Keywords 
+\b var
+\b0  and 
+\b function
+\b0  get hoisted to the top. Hoisted variables begin as undefined.\
+\
+\ul Example:\ulnone \
+\cf4 //this will return undefined\cf3 \
+
+\b console.log(hello);\
+var hello = 'Whee!';
+\b0 \
+\
+\cf4 //Should be written like this:\cf3 \
+
+\b var hello = 'Whee!';\
+console.log(hello);\
+
+\b0 \
+When our interpreter finds a function keyword, the entire code block (i.e. everything inside the function\'92s \{\}) is moved to the top of our code (but below any hoisted variables).\
+\
+\ul Ternary operator:\ulnone \
+The ternary operator is extremely useful when you're prepared to do one of two things based on what boolean a condition evaluates to. It's just shorthand that cleans up our code. For example, the below statement says: If the condition is true, log true, else log false.\
+\
+
+\b (condition) ? console.log(true) : console.log(false)\
+\ul \
+
+\b0 Conditionals:\ulnone \
+
+\b function countDown(number)\{\
+  while(number > 0)\{\
+    console.log(number);\
+    number --;\
+  \}\
+\}\
+countDown(5); 
+\b0 \cf4 //the answer is 5,4,3,2,1\
+\
+\cf3 .forEach loops through something like an array and calls whatever your function is on any object\
+\
+\pard\pardeftab720\sl340\partightenfactor0
+\cf3 Important: variables are hoisted to the top of their scope with an initial value of undefined. Each function has access to all the variables in its parent functions. No function has access to the variables in its child functions.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf3 \
+
+\b\fs28 \cf2 \ul Node:\
+
+\b0\fs24 \cf3 \ulnone Npm we\'92re going to use: FS and HTTP\
+\
+\
+}
