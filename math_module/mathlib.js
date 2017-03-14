@@ -10,7 +10,7 @@ module.exports = function (){
          console.log("Squaring Numbers:", num * num);
     },
     random: function(num1, num2) {
-         console.log("Random Number between 1 and 15:", Math.floor(Math.random() * num2) + num1)
+         console.log("Random Number between 1 and 500:", Math.floor(Math.random() * num2) + num1)
     }
   }
 };
