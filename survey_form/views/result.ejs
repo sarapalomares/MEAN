@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8">
+            <title>Survey Form</title>
+      </head>
+      <body>
+            <h2><u>Submitted Info:</u></h2>
+            <p>Name: <%= user_data.name %></p>
+            <p>Dojo Location: <%= user_data.dojo_location %></p>
+            <p>Favorite Language: <%= user_data.fav_language %></p>
+            <p>Comment: <%= user_data.comment %></p>
+            <form action="/" method="get">
+                  <input type="submit"value="Go Back">
+            </form>
+      </body>
+</html>
