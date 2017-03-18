@@ -6,10 +6,16 @@ var mongoose = require('mongoose');
 var path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, './static')));
 
+app.set('views', path.join(__dirname, './views'));
+app.set('view engine', 'ejs');
+
+//Set up DB connection
 mongoose.connect('mongodb://localhost/quoting_dojo');
 mongoose.Promise = global.Promise;
 
+//Building out schema and model
 var QuotesSchema = new mongoose.Schema({
  name: {type: String},
  quote: {type: String}
@@ -17,12 +23,6 @@ var QuotesSchema = new mongoose.Schema({
 
 mongoose.model('Quote', QuotesSchema);
 var Quote = mongoose.model('Quote');
-
-app.use(express.static(path.join(__dirname, './static')));
-
-app.set('views', path.join(__dirname, './views'));
-
-app.set('view engine', 'ejs');
 
 // Routing
 app.get('/', function(req, res) {
@@ -34,7 +34,7 @@ app.get('/quotes', function(req, res) {
             if(err) { console.log(err); }
             res.render('quotes', { quotes: results });
       });
-})
+});
 
 app.post('/post_quote', function(req, res) {
       Quote.create(req.body, function(err){
@@ -46,4 +46,4 @@ app.post('/post_quote', function(req, res) {
 // Setting our Server to Listen on Port: 8000
 app.listen(8000, function() {
     console.log("listening on port 8000: Quoting Dojo!");
-})
+});
