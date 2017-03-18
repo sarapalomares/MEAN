@@ -1,16 +1,11 @@
-// Require the Express Module
+
 var express = require('express');
-// Create an Express App
 var app = express();
-// Require body-parser (to receive post data from clients)
 var bodyParser = require('body-parser');
-// Integrate body-parser with our App
 var mongoose = require('mongoose');
+var path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-// Require path
-var path = require('path');
-// Setting our Static Folder Directory
 
 mongoose.connect('mongodb://localhost/quoting_dojo');
 mongoose.Promise = global.Promise;
@@ -20,16 +15,16 @@ var QuotesSchema = new mongoose.Schema({
  quote: {type: String}
 }, {timestamps: true})
 
-mongoose.model('Quote', QuotesSchema); // We are setting this Schema in our Models as 'Quote'
-var Quote = mongoose.model('Quote') // We are retrieving this Schema from our Models, named 'Quote'
+mongoose.model('Quote', QuotesSchema);
+var Quote = mongoose.model('Quote');
 
 app.use(express.static(path.join(__dirname, './static')));
-// Setting our Views Folder Directory
+
 app.set('views', path.join(__dirname, './views'));
-// Setting our View Engine set to EJS
+
 app.set('view engine', 'ejs');
-// Routes
-// Root Request
+
+// Routing
 app.get('/', function(req, res) {
       res.render('index.ejs');
 });
