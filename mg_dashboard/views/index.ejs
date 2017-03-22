@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8">
+            <title>Mongoose Dashboard</title>
+      </head>
+      <body>
+            <div class="welcome">
+                  <h1>Here are all the dogs:</h1>
+                  <form action="/new" method="get">
+                        <input type="submit" value="Create a Dog">
+                  </form>
+                  <br>
+            </div>
+            <div class="show_dogs">
+                  <% for (idx in dogs){ %>
+                        <b><%= dogs[idx].name %></b><br>
+                        <form action="/<%= dogs[idx]._id %>/" method="get">
+                              <input type="submit" value="Show Dog">
+                        </form>
+                        <form action="/<%= dogs[idx]._id %>/edit/" method="get">
+                              <input type="submit" value="Edit Dog">
+                        </form>
+                        <form action="/<%= dogs[idx]._id %>/destroy/" method="post">
+                              <input type="submit" value="Delete Dog">
+                        </form>
+                        <hr>
+                  <% } %>
+            </div>
+      </body>
+</html>
